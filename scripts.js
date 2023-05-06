@@ -1,4 +1,4 @@
-const button=document.getElementById("btn5")
+const button=document.getElementById("sizeButton")
 var a = document.getElementById("c1");
 button.addEventListener("click",apply);
 function alo(a)
