@@ -1,22 +1,30 @@
-const button=document.getElementById("sizeButton")
-var a = document.getElementById("c1");
-button.addEventListener("click",apply);
-function alo(a)
+const sizeButton=document.getElementById("sizeButton")
+const clearButton=document.getElementById("clearButton");
+clearButton.addEventListener("click",clear(),false);
+var container = document.getElementById("c1");
+var size = document.getElementById("size").value;
+container.style.gridTemplateColumns=`repeat(${size},1fr)`;
+container.style.gridTemplateRows=`repeat(${size},1fr)`;
+function rainbowColor(container)
 {
-    console.log(a.currentTarget.innerHTML);
     this.style.backgroundColor= Math.floor(Math.random()*16777215).toString(16);
 }
-function apply(){
-   a.innerHTML = "";
-    var size = document.getElementById("size").value;
-    console.log('alo')
-    for(let i=0;i<size;i++)
+
+function makeSize(sizeT){
+    let square=sizeT*sizeT;
+    for(let i=0;i<square;i++)
     {
     var div = document.createElement('div'); 
-    div.classList.add("gird-board");
-    
-    div.addEventListener("mouseover",alo,false);
-    a.appendChild(div);
+    container.insertAdjacentElement("beforeend",div);
+    div.addEventListener("click",rainbowColor,false);
     }
-    
+    console.log("yes")
+}
+makeSize(8);
+function clear()
+{
+    console.log("alooo");
+    var container = document.getElementById("c1");
+    let square = container.querySelectorAll('div');
+    square.forEach((div)=> div.remove());
 }
