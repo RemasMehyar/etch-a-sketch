@@ -4,6 +4,9 @@ var container = document.getElementById("c1");
 var size = document.getElementById("size").value;
 container.style.gridTemplateColumns=`repeat(${size},1fr)`;
 container.style.gridTemplateRows=`repeat(${size},1fr)`;
+
+makeSize(8);
+
 function rainbowColor(container)
 {
     this.style.backgroundColor= Math.floor(Math.random()*16777215).toString(16);
@@ -15,19 +18,19 @@ function makeSize(sizeT){
     var div = document.createElement('div'); 
     container.insertAdjacentElement("beforeend",div);
     div.addEventListener("click",rainbowColor,false);
-    clearButton.addEventListener("click",reloadGrid,false);
+    clearButton.addEventListener("click",clear,false);
+    sizeButton.addEventListener("click",reloadGrid,false)
     }
     console.log("yes")
 }
-function applySize()
-{
-    
-}
-makeSize(8);
 
 function reloadGrid() {
     clear();
-    makeSize(8);
+    var size = document.getElementById("size").value;
+
+    container.style.gridTemplateColumns=`repeat(${size},1fr)`;
+    container.style.gridTemplateRows=`repeat(${size},1fr)`;
+    makeSize(size);
   };
 function clear()
 {
