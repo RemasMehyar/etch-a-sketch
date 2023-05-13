@@ -34,5 +34,11 @@ function reloadGrid() {
   };
 function clear()
 {
+    var size = document.getElementById("size").value;
     container.innerHTML = ''
+    makeSize(size);
 }
+//Export to image function)find extension that allows pixels withotu compression
+// select single color 
+//on hover toggle
+//good background image(wihtout affecting grid).
